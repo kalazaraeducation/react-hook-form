@@ -1,7 +1,16 @@
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
-  const { register, handleSubmit, getValues } = useForm();
+  const initialValues = {
+    fname: "xyz",
+    lname: "abc",
+    email: "a@gmail.com",
+    contact: "789456123",
+  };
+
+  const { register, handleSubmit, getValues } = useForm({
+    defaultValues: initialValues,
+  });
 
   // const {} = register();
 
