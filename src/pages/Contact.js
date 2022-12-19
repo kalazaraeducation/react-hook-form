@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, getValues } = useForm();
 
   // const {} = register();
 
-  const handleData = () => {
+  const handleData = (values) => {
+    console.log("get values", getValues("fname"));
+    console.log("get values", getValues());
+    console.log("form values", values);
     console.log("we will hit some random api in this callback");
   };
 
