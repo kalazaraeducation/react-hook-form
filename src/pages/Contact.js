@@ -8,7 +8,12 @@ const Contact = () => {
     contact: "789456123",
   };
 
-  const { register, handleSubmit, getValues } = useForm({
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
     defaultValues: initialValues,
   });
 
@@ -34,6 +39,9 @@ const Contact = () => {
           placeholder="First name"
           {...register("fname", { required: true, minLength: 3, maxLength: 8 })}
         />
+        {errors.fname?.type === "required" && <p>First Name is Required</p>}
+        {errors.fname?.type === "minLength" && <p>Min length greater than 3</p>}
+        {errors.fname?.type === "maxLength" && <p>Max length less than 8</p>}
         <input type="text" placeholder="Last name" {...register("lname")} />
         <input
           type="text"
@@ -43,12 +51,13 @@ const Contact = () => {
             pattern: /^([a-zA-Z0-9@*#]{8,15})$/,
           })}
         />
+        {errors.email && <p>Email is Required</p>}
         <input
           type="number"
           placeholder="Mobile number"
           {...register("contact", { required: true, min: 10, max: 20 })}
         />
-
+        {errors.contact && <p>Contact is Required</p>}
         <input type="submit" />
       </form>
     </>
