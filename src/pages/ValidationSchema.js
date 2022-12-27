@@ -33,6 +33,7 @@ const ValidationSchema = () => {
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
+    mode: "all",
   });
 
   const handleData = (values) => {
