@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 const ValidationSchema = () => {
   const initialValues = {
-    fname: "xyz",
-    lname: "abc",
-    email: "a@gmail.com",
-    contact: 10,
+    fname: "",
+    lname: "",
+    email: "",
+    contact: 0,
   };
 
   const validationSchema = Yup.object({
@@ -31,6 +31,7 @@ const ValidationSchema = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    reset,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -39,6 +40,7 @@ const ValidationSchema = () => {
 
   const handleData = (values) => {
     console.log("we will hit some random api in this callback");
+    reset();
   };
 
   return (
@@ -59,11 +61,13 @@ const ValidationSchema = () => {
         {errors.contact && <p>{errors.contact.message}</p>}
         <input type="submit" />
         <button
+          className="ml-5"
           type="button"
           onClick={() => {
             setValue("fname", "kalazaraed");
             setValue("lname", "educationa");
             setValue("email", "kalazara@gmail.com");
+            setValue("contact", 10);
           }}
         >
           Click to set Value
