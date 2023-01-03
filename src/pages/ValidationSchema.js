@@ -32,6 +32,7 @@ const ValidationSchema = () => {
     formState: { errors },
     setValue,
     reset,
+    resetField,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -40,7 +41,9 @@ const ValidationSchema = () => {
 
   const handleData = (values) => {
     console.log("we will hit some random api in this callback");
-    reset();
+    // reset();
+    resetField("fname");
+    resetField("lname");
   };
 
   return (
