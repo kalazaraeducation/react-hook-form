@@ -30,6 +30,7 @@ const ValidationSchema = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -57,6 +58,16 @@ const ValidationSchema = () => {
         />
         {errors.contact && <p>{errors.contact.message}</p>}
         <input type="submit" />
+        <button
+          type="button"
+          onClick={() => {
+            setValue("fname", "kalazaraed");
+            setValue("lname", "educationa");
+            setValue("email", "kalazara@gmail.com");
+          }}
+        >
+          Click to set Value
+        </button>
       </form>
     </>
   );
