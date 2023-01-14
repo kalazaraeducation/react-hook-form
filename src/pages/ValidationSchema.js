@@ -33,6 +33,7 @@ const ValidationSchema = () => {
     setValue,
     reset,
     resetField,
+    setFocus,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -44,6 +45,7 @@ const ValidationSchema = () => {
     // reset();
     resetField("fname");
     resetField("lname");
+    setFocus("fname");
   };
 
   return (
@@ -70,7 +72,7 @@ const ValidationSchema = () => {
             setValue("fname", "kalazaraed");
             setValue("lname", "educationa");
             setValue("email", "kalazara@gmail.com");
-            setValue("contact", 10);
+            setValue("contact", 11);
           }}
         >
           Click to set Value
