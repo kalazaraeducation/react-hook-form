@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Navbar from "./pages/Navbar";
 import ValidationSchema from "./pages/ValidationSchema";
 import ControllerInput from "./pages/Controller";
+import "rsuite/dist/rsuite.min.css"; // or 'rsuite/dist/rsuite.min.css'
 
 const queryClient = new QueryClient();
 

@@ -1,32 +1,29 @@
 import { useForm, Controller } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { SelectPicker } from "rsuite";
+
+const data = [
+  "Eugenia",
+  "Bryan",
+  "Linda",
+  "Nancy",
+  "Lloyd",
+  "Alice",
+  "Julia",
+  "Albert",
+].map((item) => ({ label: item, value: item }));
 
 const ControllerInput = () => {
-  const initialValues = {
-    fname: "",
-  };
-
-  const validationSchema = Yup.object({
-    fname: Yup.string()
-      .required("FName is Required.")
-      .length(10, "FName should be equal to 10 characters."),
-  });
-
   const {
-    register,
     handleSubmit,
     formState: { errors },
     setValue,
     control,
-  } = useForm({
-    defaultValues: initialValues,
-    resolver: yupResolver(validationSchema),
-    mode: "all",
-  });
+  } = useForm({});
 
   const handleData = (values) => {
-    console.log("we will hit some random api in this callback");
+    console.log({ values });
   };
 
   return (
@@ -37,22 +34,10 @@ const ControllerInput = () => {
           control={control}
           name="test"
           render={({ field }) => (
-            <input {...field} type="text" placeholder="First name" />
+            <SelectPicker {...field} data={data} style={{ width: 224 }} />
           )}
         />
-
-        {errors.fname && <p>{errors.fname.message}</p>}
-
         <input type="submit" />
-        <button
-          className="ml-5"
-          type="button"
-          onClick={() => {
-            setValue("test", "kalazaraed");
-          }}
-        >
-          Click to set Value
-        </button>
       </form>
     </>
   );
