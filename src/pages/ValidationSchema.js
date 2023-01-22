@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 
 const ValidationSchema = () => {
   const initialValues = {
@@ -34,6 +35,7 @@ const ValidationSchema = () => {
     reset,
     resetField,
     setFocus,
+    watch,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -47,6 +49,11 @@ const ValidationSchema = () => {
     resetField("lname");
     setFocus("fname");
   };
+
+  useEffect(() => {
+    console.log("someone interact with the form.");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch("fname")]);
 
   return (
     <>
