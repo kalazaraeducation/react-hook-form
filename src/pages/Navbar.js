@@ -14,6 +14,9 @@ const Navbar = () => {
         <li>
           <NavLink to="/validation-schema">V-Schema</NavLink>
         </li>
+        <li>
+          <NavLink to="/controller">Controller</NavLink>
+        </li>
       </ul>
     </div>
   );

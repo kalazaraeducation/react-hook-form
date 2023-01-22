@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Navbar from "./pages/Navbar";
 import ValidationSchema from "./pages/ValidationSchema";
+import ControllerInput from "./pages/Controller";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="validation-schema" element={<ValidationSchema />} />
+          <Route path="/controller" element={<ControllerInput />} />
         </Routes>
       </Router>
     </QueryClientProvider>
