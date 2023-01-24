@@ -36,6 +36,7 @@ const ValidationSchema = () => {
     resetField,
     setFocus,
     watch,
+    trigger,
   } = useForm({
     defaultValues: initialValues,
     resolver: yupResolver(validationSchema),
@@ -83,6 +84,15 @@ const ValidationSchema = () => {
           }}
         >
           Click to set Value
+        </button>
+        <button
+          className="ml-5"
+          type="button"
+          onClick={() => {
+            trigger(["fname", "lname", "email"]);
+          }}
+        >
+          Trigger Validation
         </button>
       </form>
     </>
