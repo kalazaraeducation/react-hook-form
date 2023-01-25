@@ -17,6 +17,9 @@ const Navbar = () => {
         <li>
           <NavLink to="/controller">Controller</NavLink>
         </li>
+        <li>
+          <NavLink to="/form-state">Form State</NavLink>
+        </li>
       </ul>
     </div>
   );

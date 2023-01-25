@@ -8,6 +8,7 @@ import Navbar from "./pages/Navbar";
 import ValidationSchema from "./pages/ValidationSchema";
 import ControllerInput from "./pages/Controller";
 import "rsuite/dist/rsuite.min.css"; // or 'rsuite/dist/rsuite.min.css'
+import FormState from "./pages/FormState";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="validation-schema" element={<ValidationSchema />} />
           <Route path="/controller" element={<ControllerInput />} />
+          <Route path="/form-state" element={<FormState />} />
         </Routes>
       </Router>
     </QueryClientProvider>
