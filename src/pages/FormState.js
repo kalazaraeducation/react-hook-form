@@ -36,9 +36,9 @@ const FormState = () => {
     console.log("we will hit some random api in this callback");
   };
 
-  const { errors } = formState;
+  const { errors, dirtyFields } = formState;
 
-  console.log({ formState });
+  console.log({ dirtyFields });
 
   return (
     <>
